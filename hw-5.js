@@ -37,7 +37,7 @@ logger.call(obj);
 
 logger.apply(obj);
 
-//------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------
 //Task 4
 if (!Function.prototype.myBind) {
   Function.prototype.myBind = function (context, ...boundArgs) {
