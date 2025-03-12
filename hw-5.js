@@ -39,18 +39,16 @@ logger.apply(obj);
 
 //-----------------------------------------------------------------------------------------------
 //Task 4
-if (!Function.prototype.myBind) {
-  Function.prototype.myBind = function (context, ...boundArgs) {
-    if (typeof this !== "function") {
-      throw new TypeError("myBind must be called on a function");
-    }
-    const originalFunc = this;
-    function boundFunction(...args) {
-      const isNewCall = this instanceof boundFunction;
-      const thisContext = isNewCall ? this : context;
-      return originalFunc.apply(thisContext, [...boundArgs, ...args]);
-    }
-    boundFunction.prototype = Object.create(originalFunc.prototype);
-    return boundFunction;
-  };
-}
+Function.prototype.myBind = function (context, ...boundArgs) {
+  if (typeof this !== "function") {
+    throw new TypeError("myBind must be called on a function");
+  }
+  const originalFunc = this;
+  function boundFunction(...args) {
+    const isNewCall = this instanceof boundFunction;
+    const thisContext = isNewCall ? this : context;
+    return originalFunc.apply(thisContext, [...boundArgs, ...args]);
+  }
+  boundFunction.prototype = Object.create(originalFunc.prototype);
+  return boundFunction;
+};
