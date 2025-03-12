@@ -39,10 +39,8 @@ const selectFromInterval = (arr, a, b) => {
 
 //---------------------------------------------------
 // Task 3
-const fn = (key) => {
-    const values = arr.map((item) => item[key]);
-    console.log(values.join(', '));
-};
+const fn = (key) => (item) => console.log(item[key]);
+
 
 //----------------------------------------------------
 // Task 5
